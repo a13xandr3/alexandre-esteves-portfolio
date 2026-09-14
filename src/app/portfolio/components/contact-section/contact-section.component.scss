@@ -1,0 +1,82 @@
+:host {
+  display: block;
+  padding: clamp(0rem, 10vw, 1rem) clamp(1.25rem, 9vw, 10rem);
+  text-align: center;
+}
+.section-number {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+h2 {
+  margin: 1.5rem 0;
+  font-family: var(--display);
+  font-size: clamp(3rem, 7vw, 7.5rem);
+  font-weight: 520;
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+}
+h2 em {
+  font-weight: 420;
+}
+.contact-form {
+  width: min(100%, 48rem);
+  margin: clamp(3rem, 6vw, 5rem) auto 2.5rem;
+  text-align: left;
+}
+.contact-form label,
+.message-heading span {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  margin: 0.65rem 0 1.75rem;
+  padding: 1rem 1.15rem;
+  border: 1px solid;
+  border-radius: 0.75rem;
+  outline: 0;
+  font: inherit;
+}
+.contact-form textarea {
+  min-height: 8rem;
+  resize: vertical;
+  line-height: 1.65;
+}
+.message-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.contact-form button {
+  min-width: 13rem;
+  padding: 1rem 1.4rem;
+  border: 1px solid;
+  border-radius: 0.5rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+.contact-form button:hover:not(:disabled) {
+  transform: translateY(-0.2rem);
+}
+.contact-form button:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+.form-status {
+  min-height: 1.5rem;
+  margin: 1rem 0 0;
+  font-size: 0.9rem;
+}
+@media (prefers-reduced-motion: reduce) {
+  .contact-form button {
+    transition: none;
+  }
+}

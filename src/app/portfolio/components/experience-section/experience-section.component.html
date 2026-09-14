@@ -1,0 +1,49 @@
+<div class="section-heading">
+  <p class="section-number">03 / TRAJETÓRIA</p>
+  <h2 id="experience-title">Experiência profissional</h2>
+  <p>Uma carreira construída entre modernização, arquitetura e produtos de missão crítica.</p>
+</div>
+<div class="experience-grid">
+  @for (job of experiences(); track job.company) {
+    <article class="experience-card">
+      <div class="card-topline">
+        <time>{{ job.period }}</time>
+        <span aria-hidden="true">✦</span>
+      </div>
+
+      <div class="brand-pair" aria-label="Empresa e cliente atendido">
+        <div class="brand">
+          <span class="brand-mark">
+            <img [src]="job.companyLogo" [alt]="'Logotipo da ' + job.company" />
+          </span>
+          <span
+            ><small>Empresa</small><strong>{{ job.company }}</strong></span
+          >
+        </div>
+        <span class="brand-connector" aria-hidden="true">×</span>
+        <div class="brand">
+          <span class="brand-mark client-mark">
+            <img [src]="job.clientLogo" [alt]="'Logotipo de ' + job.client" />
+          </span>
+          <span
+            ><small>Cliente</small><strong>{{ job.client }}</strong></span
+          >
+        </div>
+      </div>
+
+      <div class="card-copy">
+        <p class="role">{{ job.role }}</p>
+        <p class="context">{{ job.context }}</p>
+      </div>
+
+      <div class="spotlight">
+        <div>
+          <span>Tecnologia</span><strong>{{ job.technology }}</strong>
+        </div>
+        <div>
+          <span>Meta atingida</span><strong>{{ job.achievement }}</strong>
+        </div>
+      </div>
+    </article>
+  }
+</div>

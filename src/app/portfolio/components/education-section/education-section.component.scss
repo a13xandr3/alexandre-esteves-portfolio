@@ -1,0 +1,69 @@
+:host {
+  display: block;
+  padding: clamp(0rem, 10vw, 1rem) clamp(1.25rem, 9vw, 10rem);
+}
+.section-number {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+.section-heading {
+  display: grid;
+  grid-template-columns: 1fr 2.1fr 1fr;
+  gap: 2rem;
+  align-items: end;
+  margin-bottom: clamp(2.75rem, 6vw, 5rem);
+}
+.section-heading h2 {
+  margin: 0;
+  font-family: var(--display);
+  font-size: clamp(2.8rem, 5vw, 5.5rem);
+  font-weight: 520;
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+}
+.education-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+.education-grid article {
+  min-height: 15rem;
+  padding: clamp(1.75rem, 3vw, 2.5rem);
+  border: 1px solid;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease;
+}
+.education-grid article:hover {
+  transform: translateY(-0.35rem);
+}
+.education-grid span {
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+.education-grid h3 {
+  margin: 1.4rem 0 0.5rem;
+  font: 520 1.65rem var(--display);
+}
+.education-grid p {
+  margin: 0;
+  line-height: 1.6;
+}
+@media (max-width: 900px) {
+  .section-heading,
+  .education-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .education-grid article {
+    transition: none;
+  }
+}

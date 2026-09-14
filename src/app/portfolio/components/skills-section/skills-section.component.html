@@ -1,0 +1,17 @@
+<div class="section-heading">
+  <p class="section-number">04 / COMPETÊNCIAS</p>
+  <h2 id="skills-title">Profundidade técnica.<br />Visão de conjunto.</h2>
+</div>
+<div class="skill-grid">
+  @for (group of skillGroups(); track group.label; let i = $index) {
+    <article class="skill-group">
+      <span class="skill-index">0{{ i + 1 }}</span>
+      <h3>{{ group.label }}</h3>
+      <mat-chip-set aria-label="Competências em {{ group.label }}">
+        @for (skill of group.items; track skill) {
+          <mat-chip>{{ skill }}</mat-chip>
+        }
+      </mat-chip-set>
+    </article>
+  }
+</div>

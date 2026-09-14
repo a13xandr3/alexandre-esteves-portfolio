@@ -1,0 +1,111 @@
+:host {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 5.25rem;
+  padding: 0 clamp(1.25rem, 5vw, 5.5rem);
+  border-bottom: 1px solid;
+  backdrop-filter: blur(18px);
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  font-weight: 750;
+  letter-spacing: -0.02em;
+}
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 2.35rem;
+  height: 2.35rem;
+  border-radius: 50%;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+}
+nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.75rem, 1.5vw, 1.5rem);
+}
+nav a {
+  text-decoration: none;
+  font-size: 0.84rem;
+  font-weight: 500;
+}
+nav a:hover {
+  font-weight: bold;
+}
+.header-social {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+.social-link {
+  width: 2.25rem;
+  height: 2.25rem;
+  display: grid;
+  place-items: center;
+  border: 1px solid;
+  border-radius: 50%;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+.social-link:hover {
+  transform: translateY(-0.15rem);
+}
+.social-link svg {
+  width: 1rem;
+  height: 1rem;
+  fill: currentColor;
+}
+nav .nav-cta {
+  padding: 0.75rem 1rem;
+  border-radius: 0.35rem;
+}
+.menu-button {
+  display: none;
+  padding: 0.55rem 0.8rem;
+  border: 1px solid;
+  border-radius: 0.35rem;
+  font: inherit;
+}
+@media (max-width: 1080px) {
+  .menu-button {
+    display: block;
+  }
+  nav {
+    position: absolute;
+    top: 5.25rem;
+    right: 0;
+    left: 0;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 1.5rem;
+    border-bottom: 1px solid;
+  }
+  nav.open {
+    display: flex;
+  }
+  .header-social {
+    justify-content: center;
+    padding: 0.5rem 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .social-link {
+    transition: none;
+  }
+}
+@media (max-width: 520px) {
+  .brand > span:last-child {
+    display: none;
+  }
+}

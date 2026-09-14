@@ -1,0 +1,151 @@
+:host {
+  display: grid;
+  grid-template-columns: minmax(0, 1.65fr) minmax(18rem, 0.75fr);
+  gap: clamp(2rem, 7vw, 8rem);
+  align-items: center;
+  min-height: calc(100vh - 5.25rem);
+  padding: clamp(0rem, 10vw, 1rem) clamp(1.25rem, 9vw, 10rem);
+  overflow: hidden;
+}
+.hero-copy {
+  max-width: 58rem;
+}
+.eyebrow,
+.card-index {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+.eyebrow span {
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  margin-right: 0.5rem;
+  border-radius: 50%;
+}
+h1 {
+  max-width: 17ch;
+  margin: 1.5rem 0;
+  font-family: var(--display);
+  font-size: clamp(3.4rem, 7.2vw, 7.8rem);
+  font-weight: 520;
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+}
+h1 em {
+  font-weight: 420;
+}
+.hero-lead {
+  max-width: 49rem;
+  font-size: clamp(1.05rem, 1.5vw, 1.35rem);
+  line-height: 1.65;
+}
+.hero-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 2.2rem;
+}
+.hero-actions a {
+  padding: 1.35rem 1.6rem;
+  font-weight: 750;
+}
+.hero-proof {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  max-width: 49rem;
+  margin: clamp(2.75rem, 5vw, 4.5rem) 0 0;
+  padding: 0;
+  border-top: 1px solid;
+}
+.hero-proof div {
+  padding: 1.25rem 1rem 0 0;
+}
+.hero-proof div + div {
+  padding-left: 1rem;
+  border-left: 1px solid;
+}
+.hero-proof dt {
+  margin-bottom: 0.3rem;
+  font: 520 clamp(1.5rem, 2.5vw, 2.2rem) var(--display);
+}
+.hero-proof dd {
+  margin: 0;
+  font-size: 0.72rem;
+  line-height: 1.45;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.hero-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 31rem;
+  padding: 2rem;
+  border: 1px solid;
+  border-radius: 1.5rem;
+  overflow: hidden;
+}
+.card-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.availability-mark {
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 50%;
+  box-shadow: 0 0 0 0.4rem;
+}
+.card-message {
+  margin: auto 0;
+}
+.card-message > p {
+  margin: 0 0 2rem;
+  font: 520 clamp(1.8rem, 3vw, 2.65rem)/1.12 var(--display);
+  letter-spacing: -0.025em;
+}
+.card-message ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.card-message li {
+  padding: 0.8rem 0;
+  border-top: 1px solid;
+  font-size: 0.84rem;
+}
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.4rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.75rem;
+}
+@media (max-width: 900px) {
+  :host {
+    grid-template-columns: 1fr;
+  }
+  .hero-card {
+    max-width: 30rem;
+    min-height: 22rem;
+  }
+}
+@media (max-width: 520px) {
+  h1 {
+    font-size: 3.25rem;
+  }
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .hero-proof {
+    grid-template-columns: 1fr;
+  }
+  .hero-proof div + div {
+    padding-left: 0;
+    border-left: 0;
+  }
+}

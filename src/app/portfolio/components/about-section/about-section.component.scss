@@ -1,0 +1,38 @@
+:host {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 2rem;
+  padding: clamp(0rem, 10vw, 1rem) clamp(1.25rem, 9vw, 10rem);
+}
+
+.section-number {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+:host > div {
+  max-width: 65rem;
+}
+h2 {
+  margin: 0 0 1.5rem;
+  font-family: var(--display);
+  font-size: clamp(2.8rem, 5.5vw, 6rem);
+  font-weight: 520;
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+}
+:host > div > p {
+  max-width: 49rem;
+  margin-left: auto;
+  font-size: 1.12rem;
+  line-height: 1.8;
+}
+@media (max-width: 900px) {
+  :host {
+    grid-template-columns: 1fr;
+  }
+  :host > div > p {
+    margin-left: 0;
+  }
+}

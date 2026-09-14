@@ -1,0 +1,187 @@
+:host {
+  display: block;
+  padding: clamp(0rem, 10vw, 1rem) clamp(1.25rem, 9vw, 10rem);
+}
+
+.section-number {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.section-heading {
+  display: grid;
+  grid-template-columns: 1fr 2.1fr 1fr;
+  gap: 2rem;
+  align-items: end;
+  margin-bottom: clamp(2.75rem, 6vw, 5rem);
+}
+
+.section-heading h2 {
+  margin: 0;
+  font-family: var(--display);
+  font-size: clamp(2.8rem, 5vw, 5.5rem);
+  font-weight: 520;
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+}
+
+.section-heading > p:last-child {
+  line-height: 1.7;
+}
+
+.experience-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+
+.experience-card {
+  min-height: 25rem;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(1.35rem, 2.5vw, 2rem);
+  border: 1px solid;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.experience-card:hover {
+  transform: translateY(-0.35rem);
+}
+
+.card-topline,
+.brand-pair,
+.spotlight {
+  display: flex;
+  align-items: center;
+}
+
+.card-topline {
+  justify-content: space-between;
+  font-size: 0.72rem;
+  font-weight: 750;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.brand-pair {
+  gap: clamp(0.6rem, 1.5vw, 1rem);
+  margin: clamp(2rem, 4vw, 3rem) 0;
+}
+
+.brand {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex: 1;
+}
+.brand > span:last-child {
+  min-width: 0;
+}
+.brand small,
+.brand strong,
+.spotlight span,
+.spotlight strong {
+  display: block;
+}
+.brand small,
+.spotlight span {
+  margin-bottom: 0.25rem;
+  font-size: 0.66rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+.brand strong {
+  font-size: clamp(0.75rem, 1.1vw, 0.92rem);
+  line-height: 1.25;
+}
+
+.brand-mark {
+  width: 5rem;
+  height: 3.25rem;
+  flex: 0 0 5rem;
+  display: grid;
+  place-items: center;
+  padding: 0.55rem;
+  border-radius: 0.85rem;
+  font: 700 1rem var(--display);
+}
+
+.brand-mark img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+}
+.brand-connector {
+  font-size: 1.2rem;
+  opacity: 0.35;
+}
+
+.card-copy {
+  margin-top: auto;
+}
+.role {
+  margin: 0;
+  font: 520 clamp(1.25rem, 2vw, 1.65rem)/1.15 var(--display);
+}
+.context {
+  margin: 0.6rem 0 1.5rem;
+  font-size: 0.8rem;
+}
+
+.spotlight {
+  align-items: stretch;
+  padding-top: 1.25rem;
+  border-top: 1px solid;
+}
+
+.spotlight > div {
+  flex: 1;
+  padding-right: 1rem;
+}
+.spotlight > div + div {
+  padding-left: 1rem;
+  padding-right: 0;
+  border-left: 1px solid;
+}
+.spotlight strong {
+  font-size: 0.86rem;
+  line-height: 1.35;
+}
+
+@media (max-width: 900px) {
+  .section-heading,
+  .experience-grid {
+    grid-template-columns: 1fr;
+  }
+  .section-heading {
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .experience-card {
+    min-height: 27rem;
+  }
+  .brand-pair {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .brand-connector {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .experience-card {
+    transition: none;
+  }
+}
