@@ -1,5 +1,5 @@
 @use '@angular/material' as mat;
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..600;1,8..60,400..600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,400..800;1,400..800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..600;1,8..60,400..600&display=swap');
 
 html {
   @include mat.theme(
@@ -8,7 +8,7 @@ html {
         primary: mat.$azure-palette,
         tertiary: mat.$blue-palette,
       ),
-      typography: Manrope,
+      typography: 'Atkinson Hyperlegible Next',
       density: 0,
     )
   );
@@ -18,6 +18,7 @@ html {
 }
 
 :root {
+  color-scheme: dark;
   /* Tema piano black: toda a paleta do projeto vive aqui. */
   --piano-black: #070809;
   --piano-black-glass: rgba(5, 8, 16, 0.88);
@@ -27,6 +28,7 @@ html {
   --night-halo: #16224e;
   --night-halo-soft: rgba(20, 43, 82, 0.46);
   --night-halo-violet: rgba(29, 21, 64, 0.22);
+  --night-section-glow: rgba(22, 42, 78, 0.12);
   --surface: #090d17;
   --surface-raised: #0d1320;
   --surface-soft: #121a29;
@@ -72,7 +74,7 @@ html {
   --card-7-bg: #131117;
   --card-7-ink: #d8d3df;
   --card-7-muted: #8e879b;
-  --body: 'Manrope', sans-serif;
+  --body: 'Atkinson Hyperlegible Next', 'Atkinson Hyperlegible', Arial, sans-serif;
   --display: 'Source Serif 4', serif;
   --text: #bfa181;
 }
@@ -84,11 +86,10 @@ body {
   margin: 0;
   min-height: 100vh;
   background:
-    radial-gradient(80% 55% at 50% -12%, var(--night-halo) 0%, transparent 72%),
-    radial-gradient(55% 42% at 4% 38%, var(--night-halo-soft) 0%, transparent 72%),
-    radial-gradient(45% 35% at 92% 14%, var(--night-halo-violet) 0%, transparent 70%),
-    linear-gradient(160deg, var(--night-blue-deep), var(--night-blue-mid) 56%, var(--piano-black));
-  background-attachment: fixed;
+    radial-gradient(70rem 42rem at 50% 0, var(--night-halo) 0%, transparent 72%),
+    radial-gradient(56rem 38rem at 0 34%, var(--night-halo-soft) 0%, transparent 75%),
+    radial-gradient(48rem 34rem at 100% 68%, var(--night-halo-violet) 0%, transparent 76%),
+    linear-gradient(165deg, var(--night-blue-deep), var(--night-blue-mid) 52%, var(--piano-black));
   color: var(--ink);
   font: 16px var(--body);
   -webkit-font-smoothing: antialiased;
@@ -122,7 +123,8 @@ a {
   color: inherit;
 }
 a:focus-visible,
-button:focus-visible {
+button:focus-visible,
+summary:focus-visible {
   outline: 3px solid var(--focus);
   outline-offset: 4px;
 }
@@ -153,6 +155,10 @@ header[appPortfolioHeader] .nav-cta {
   background: var(--surface-soft);
   color: var(--ink);
 }
+header[appPortfolioHeader] .nav-cta {
+  border: 1px solid var(--accent-muted);
+  color: var(--accent-strong);
+}
 header[appPortfolioHeader] nav a {
   color: var(--muted);
 }
@@ -181,7 +187,6 @@ section[appHeroSection] {
   background: transparent;
 }
 section[appHeroSection] .eyebrow,
-section[appHeroSection] .card-index,
 section[appHeroSection] h1 em {
   color: var(--accent);
 }
@@ -189,38 +194,10 @@ section[appHeroSection] .eyebrow span {
   background: var(--success);
 }
 section[appHeroSection] .hero-lead {
-  color: var(--muted);
-}
-section[appHeroSection] .hero-card {
-  background: linear-gradient(145deg, var(--night-blue-soft), var(--surface-raised) 58%);
-  color: var(--ink);
-  border-color: var(--line);
-  box-shadow: 1.5rem 1.5rem 0 var(--surface-soft);
-}
-section[appHeroSection] .hero-card .card-index,
-section[appHeroSection] .monogram span {
-  color: var(--accent);
-}
-section[appHeroSection] .monogram {
-  color: var(--accent-strong);
-}
-section[appHeroSection] .hero-card p,
-section[appHeroSection] .card-footer {
-  color: var(--muted);
-}
-section[appHeroSection] .card-footer {
-  border-color: var(--line);
-}
-section[appHeroSection] .hero-actions a:first-child {
-  --mdc-filled-button-container-color: var(--accent);
-  --mdc-filled-button-label-text-color: var(--piano-black);
-}
-section[appHeroSection] .hero-actions a:last-child {
-  --mdc-text-button-label-text-color: var(--accent-strong);
+  color: var(--ink-soft);
 }
 section[appHeroSection] .hero-proof,
-section[appHeroSection] .hero-proof div + div,
-section[appHeroSection] .card-message li {
+section[appHeroSection] .hero-proof div + div {
   border-color: var(--line);
 }
 section[appHeroSection] .hero-proof dt,
@@ -229,13 +206,6 @@ section[appHeroSection] .card-message > p {
 }
 section[appHeroSection] .hero-proof dd {
   color: var(--muted);
-}
-section[appHeroSection] .availability-mark {
-  color: var(--success-glow);
-  background: var(--success);
-}
-section[appHeroSection] .card-message li {
-  color: var(--accent);
 }
 
 section[appAboutSection],
@@ -246,23 +216,32 @@ section[appContactSection] {
   color: var(--ink);
   background: transparent;
 }
-section[appAboutSection] .section-number,
 section[appAboutSection] h2 span,
-section[appEducationSection] .section-number,
 section[appEducationSection] .education-grid span,
-section[appSkillsSection] .section-number,
-section[appExperienceSection] .section-number,
-section[appContactSection] .section-number,
 section[appContactSection] h2 em {
   color: var(--accent);
 }
 section[appAboutSection] > div > p,
 section[appExperienceSection] .section-heading > p:last-child {
-  color: var(--muted);
+  color: var(--ink-soft);
+}
+section[appAboutSection] .story-kicker,
+section[appAboutSection] .story-year,
+section[appAboutSection] summary {
+  color: var(--accent);
+}
+section[appAboutSection] .story-milestone,
+section[appAboutSection] .story-full {
+  border-color: var(--line);
+  background: var(--white-glow-soft);
 }
 section[appEducationSection] .education-grid article,
 section[appSkillsSection] .skill-group {
   border-color: var(--line);
+}
+section[appEducationSection] .education-type,
+section[appSkillsSection] .skill-accent {
+  background: var(--accent);
 }
 
 section[appEducationSection],
@@ -342,9 +321,6 @@ section[appExperienceSection] .spotlight strong {
 section[appExperienceSection] .role {
   color: var(--accent-strong);
 }
-section[appSkillsSection] .skill-index {
-  color: var(--card-muted);
-}
 section[appEducationSection] .education-grid span {
   color: var(--accent);
 }
@@ -374,6 +350,12 @@ section[appExperienceSection] .brand-mark img {
 section[appExperienceSection] .spotlight,
 section[appExperienceSection] .spotlight > div + div {
   border-color: var(--line);
+}
+section[appExperienceSection] .case-details {
+  border-color: var(--line);
+}
+section[appExperienceSection] .case-details summary {
+  color: var(--accent);
 }
 
 section[appContactSection] {
@@ -423,9 +405,9 @@ footer[appPortfolioFooter] {
   background: var(--piano-black-glass);
 }
 
-@media (max-width: 520px) {
-  section[appHeroSection] .hero-card {
-    box-shadow: 0.75rem 0.75rem 0 var(--surface-soft);
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 }
 

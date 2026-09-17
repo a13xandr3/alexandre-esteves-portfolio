@@ -1,16 +1,38 @@
-<section appHeroSection id="inicio" aria-labelledby="hero-title"></section>
-<section appAboutSection id="sobre" aria-labelledby="sobre-title"></section>
 <section
+  class="portfolio-section portfolio-section--hero"
+  appHeroSection
+  id="inicio"
+  aria-labelledby="hero-title"
+></section>
+<section
+  class="portfolio-section portfolio-section--about"
+  appAboutSection
+  id="sobre"
+  aria-labelledby="sobre-title"
+></section>
+<section
+  class="portfolio-section portfolio-section--experience"
   appExperienceSection
   id="experiencia"
   aria-labelledby="experience-title"
   [experiences]="experiences()"
 ></section>
 <section
+  class="portfolio-section portfolio-section--skills"
   appSkillsSection
   id="competencias"
   aria-labelledby="skills-title"
   [skillGroups]="skillGroups()"
 ></section>
-<section appEducationSection id="formacao" aria-labelledby="education-title"></section>
-<section appContactSection id="contato" aria-labelledby="contact-title"></section>
+<section
+  class="portfolio-section portfolio-section--education"
+  appEducationSection
+  id="formacao"
+  aria-labelledby="education-title"
+></section>
+<section
+  class="portfolio-section portfolio-section--contact"
+  appContactSection
+  id="contato"
+  aria-labelledby="contact-title"
+></section>
