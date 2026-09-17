@@ -72,6 +72,13 @@
   }
 }
 
+@media (max-width: 991.98px) {
+  .education-grid > .row,
+  .education-grid > .row > div > .row {
+    row-gap: 0.5rem;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .education-grid article {
     transition: none;

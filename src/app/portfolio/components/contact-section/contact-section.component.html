@@ -1,9 +1,11 @@
-<h2 id="contact-title">Seu desafio pode ser<br /><em>a próxima transformação.</em></h2>
+<h2 id="contact-title" class="text-break">
+  Seu desafio pode ser<br class="d-none d-sm-inline" /><em>a próxima transformação.</em>
+</h2>
 <p class="contact-intro">
   Conte-me sobre seu projeto, desafio ou oportunidade. Normalmente respondo em até um dia útil.
 </p>
 
-<form class="contact-form" (submit)="sendMessage($event)">
+<form class="contact-form container-fluid px-0" (submit)="sendMessage($event)">
   <input type="hidden" name="_subject" value="contato" />
   <input type="hidden" name="_template" value="table" />
 
@@ -31,7 +33,7 @@
     (input)="updateMessageLength($event)"
   ></textarea>
 
-  <button type="submit" [disabled]="sendState() === 'sending'">
+  <button class="col-12 col-sm-auto" type="submit" [disabled]="sendState() === 'sending'">
     {{ sendState() === 'sending' ? 'Enviando…' : 'Enviar mensagem' }}
   </button>
 

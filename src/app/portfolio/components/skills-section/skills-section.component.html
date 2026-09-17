@@ -1,20 +1,24 @@
-<div class="section-heading">
+<div class="section-heading container-fluid px-0">
   <h2 id="skills-title">Angular em profundidade. Engenharia ao redor.</h2>
-  <h4 class="section-summary">
+  <p class="section-summary mb-0">
     Engenharia front-end, arquitetura, qualidade e integração aplicadas a produtos que precisam
     evoluir com segurança.
-  </h4>
+  </p>
 </div>
-<div class="skill-grid">
-  @for (group of skillGroups(); track group.label) {
-    <article class="skill-group">
-      <span class="skill-accent" aria-hidden="true"></span>
-      <h3>{{ group.label }}</h3>
-      <mat-chip-set aria-label="Competências em {{ group.label }}">
-        @for (skill of group.items; track skill) {
-          <mat-chip>{{ skill }}</mat-chip>
-        }
-      </mat-chip-set>
-    </article>
-  }
+<div class="skill-grid container-fluid d-block px-0">
+  <div class="row g-3 g-xl-4">
+    @for (group of skillGroups(); track group.label) {
+      <div class="col-12 col-lg-6 d-flex mb-2 mb-lg-0">
+        <article class="skill-group w-100">
+          <span class="skill-accent" aria-hidden="true"></span>
+          <h3>{{ group.label }}</h3>
+          <mat-chip-set aria-label="Competências em {{ group.label }}">
+            @for (skill of group.items; track skill) {
+              <mat-chip>{{ skill }}</mat-chip>
+            }
+          </mat-chip-set>
+        </article>
+      </div>
+    }
+  </div>
 </div>

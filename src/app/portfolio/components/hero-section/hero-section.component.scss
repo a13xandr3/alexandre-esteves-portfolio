@@ -198,6 +198,20 @@ a.hero-action:hover strong {
       'visual'
       'support';
     grid-template-rows: auto;
+    min-height: auto;
+    margin-bottom: clamp(3.5rem, 10vw, 5rem);
+    padding-top: clamp(2rem, 6vw, 3.5rem);
+  }
+  .hero-copy {
+    max-width: 46rem;
+    margin-inline: auto;
+    text-align: center;
+  }
+  .eyebrow {
+    line-height: 1.5;
+  }
+  .hero-lead {
+    margin-inline: auto;
   }
   .hero-support {
     grid-template-columns: 1fr;
@@ -211,21 +225,38 @@ a.hero-action:hover strong {
   }
   .hero-visual {
     width: min(100%, 38rem);
-    min-height: min(40rem, 70svh);
+    min-height: clamp(15rem, 42vw, 22rem);
+    margin-inline: auto;
   }
   .portrait {
     left: 0;
   }
   .portrait img {
-    width: min(35.2rem, 92vw);
-    max-height: 70svh;
+    width: min(35.2rem, 110vw);
+    max-height: 24rem;
     height: auto;
   }
 }
 @media (max-width: 520px) {
+  :host {
+    padding-inline: clamp(1rem, 5vw, 1.5rem);
+    padding-top: 1.25rem;
+  }
+  .eyebrow {
+    margin-block: 0;
+    font-size: 0.65rem;
+  }
   .hero-title {
-    font-size: 3.25rem;
-    line-height: 1.04;
+    margin-block: 0.6rem;
+    font-size: clamp(2rem, 9.5vw, 2.5rem);
+    line-height: 1.01;
+  }
+  .hero-lead {
+    font-size: 0.92rem;
+    line-height: 1.45;
+  }
+  .hero-lead br {
+    display: none;
   }
   .hero-proof div + div {
     padding-left: 0.75rem;
@@ -251,18 +282,19 @@ a.hero-action:hover strong {
     border-left: 0;
   }
   .hero-visual {
-    min-height: auto;
-    display: block;
+    min-height: clamp(12rem, 52vw, 15rem);
+    margin-top: 0.75rem;
+    display: flex;
   }
   .portrait {
-    position: relative;
-    inset: auto;
-    min-height: 24rem;
+    position: absolute;
+    inset: 0;
   }
   .portrait img {
-    width: min(32rem, 100%);
+    width: min(27rem, 110vw);
     max-width: 100%;
-    max-height: none;
+    max-height: 100%;
     height: auto;
+    object-fit: contain;
   }
 }

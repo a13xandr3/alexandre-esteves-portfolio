@@ -1,56 +1,60 @@
-<div class="section-heading">
+<div class="section-heading container-fluid px-0">
   <h2 id="experience-title">Angular aplicado a desafios que não podiam parar.</h2>
   <p>
     Modernizações conduzidas com responsabilidade, contexto de negócio e atenção à continuidade de
     operações críticas.
   </p>
 </div>
-<div class="experience-grid">
-  @for (job of experiences(); track job.company) {
-    <article class="experience-card">
-      <div class="card-topline">
-        <time>{{ job.period }}</time>
-        <span aria-hidden="true">✦</span>
+<div class="experience-grid container-fluid d-block px-0">
+  <div class="row g-3 g-xl-4">
+    @for (job of experiences(); track job.company) {
+      <div class="col-12 col-lg-6 d-flex mb-2 mb-lg-0">
+        <article class="experience-card w-100">
+          <div class="card-topline">
+            <time>{{ job.period }}</time>
+            <span aria-hidden="true">✦</span>
+          </div>
+          <div class="brand-pair flex-wrap flex-sm-nowrap" aria-label="Empresa e cliente atendido">
+            <div class="brand">
+              <span class="brand-mark">
+                <img [src]="job.companyLogo" [alt]="'Logotipo da ' + job.company" />
+              </span>
+              <span
+                ><small>Empresa</small><strong>{{ job.company }}</strong></span
+              >
+            </div>
+            <span class="brand-connector" aria-hidden="true">×</span>
+            <div class="brand">
+              <span class="brand-mark client-mark">
+                <img [src]="job.clientLogo" [alt]="'Logotipo de ' + job.client" />
+              </span>
+              <span
+                ><small>Cliente</small><strong>{{ job.client }}</strong></span
+              >
+            </div>
+          </div>
+          <div class="card-copy">
+            <p class="role">{{ job.role }}</p>
+            <p class="context">{{ job.context }}</p>
+          </div>
+          <div class="spotlight flex-column flex-sm-row">
+            <div>
+              <span>Tecnologia</span><strong>{{ job.technology }}</strong>
+            </div>
+            <div>
+              <span>Impacto</span><strong>{{ job.achievement }}</strong>
+            </div>
+          </div>
+          <details class="case-details">
+            <summary>Ver minha contribuição</summary>
+            <ul>
+              @for (highlight of job.highlights; track highlight) {
+                <li>{{ highlight }}</li>
+              }
+            </ul>
+          </details>
+        </article>
       </div>
-      <div class="brand-pair" aria-label="Empresa e cliente atendido">
-        <div class="brand">
-          <span class="brand-mark">
-            <img [src]="job.companyLogo" [alt]="'Logotipo da ' + job.company" />
-          </span>
-          <span
-            ><small>Empresa</small><strong>{{ job.company }}</strong></span
-          >
-        </div>
-        <span class="brand-connector" aria-hidden="true">×</span>
-        <div class="brand">
-          <span class="brand-mark client-mark">
-            <img [src]="job.clientLogo" [alt]="'Logotipo de ' + job.client" />
-          </span>
-          <span
-            ><small>Cliente</small><strong>{{ job.client }}</strong></span
-          >
-        </div>
-      </div>
-      <div class="card-copy">
-        <p class="role">{{ job.role }}</p>
-        <p class="context">{{ job.context }}</p>
-      </div>
-      <div class="spotlight">
-        <div>
-          <span>Tecnologia</span><strong>{{ job.technology }}</strong>
-        </div>
-        <div>
-          <span>Impacto</span><strong>{{ job.achievement }}</strong>
-        </div>
-      </div>
-      <details class="case-details">
-        <summary>Ver minha contribuição</summary>
-        <ul>
-          @for (highlight of job.highlights; track highlight) {
-            <li>{{ highlight }}</li>
-          }
-        </ul>
-      </details>
-    </article>
-  }
+    }
+  </div>
 </div>

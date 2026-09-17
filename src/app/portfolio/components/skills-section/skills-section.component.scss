@@ -18,9 +18,8 @@
   text-align: center;
 }
 .section-summary {
-  font-family: var(--display);
   max-width: 100%;
-  margin: 1.25rem 0 0;
+  margin: 1.25rem auto 0;
   color: var(--ink-soft);
   line-height: 1.7;
   text-align: center;
@@ -63,6 +62,12 @@
 @media (max-width: 900px) {
   .skill-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .skill-grid > .row {
+    row-gap: 0.5rem;
   }
 }
 
