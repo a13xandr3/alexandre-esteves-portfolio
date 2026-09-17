@@ -15,11 +15,11 @@ export class PortfolioComponent {
   protected readonly year = new Date().getFullYear();
   protected readonly skillGroups: readonly SkillGroup[] = [
     {
-      label: 'Front-end',
+      label: 'Angular e front-end',
       items: ['Angular 8–20', 'TypeScript', 'RxJS', 'HTML5', 'SCSS', 'Angular CDK', 'Ionic', 'SPA'],
     },
     {
-      label: 'Arquitetura',
+      label: 'Arquitetura Angular',
       items: [
         'Microfrontends',
         'Angular Elements',
@@ -29,12 +29,21 @@ export class PortfolioComponent {
       ],
     },
     {
-      label: 'Qualidade',
+      label: 'Qualidade de entrega',
       items: ['Jest', 'Jasmine', 'Karma', 'TDD', 'BDD', 'SOLID', 'Clean Code'],
     },
     {
-      label: 'Integração e dados',
-      items: ['APIs REST', 'Java', 'Node.js', 'C#', 'Oracle 19C', 'SQL Server', 'MySQL', 'MongoDB'],
+      label: 'Integrações e back-end',
+      items: [
+        'APIs REST',
+        'Java 17/21',
+        'Node.js',
+        'C#',
+        'Oracle 19C',
+        'SQL Server',
+        'MySQL',
+        'MongoDB',
+      ],
     },
   ];
   protected readonly experiences: readonly Experience[] = [
@@ -124,12 +133,13 @@ export class PortfolioComponent {
       period: 'set 2020 — ago 2023',
       context: 'Cobrança PJ',
       technology: 'VB6 → Angular 8',
-      achievement: 'Operação web modernizada',
+      achievement: 'Projeto antecipado em 6 meses',
       highlights: [
         'Modernização de aplicações VB6 para Angular 8.',
         'Integração com APIs desenvolvidas em Java.',
       ],
     },
+    /*
     {
       company: 'GFT Brasil Consultoria',
       companyLogo: 'assets/logos/gft-technologies-logo.svg',
@@ -145,5 +155,6 @@ export class PortfolioComponent {
         'Colaboração com a equipe de alta plataforma (mainframe).',
       ],
     },
+    */
   ];
 }

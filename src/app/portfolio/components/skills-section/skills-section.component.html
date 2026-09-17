@@ -1,11 +1,14 @@
 <div class="section-heading">
-  <p class="section-number">04 / COMPETÊNCIAS</p>
-  <h2 id="skills-title">Profundidade técnica.<br />Visão de conjunto.</h2>
+  <h2 id="skills-title">Angular em profundidade. Engenharia ao redor.</h2>
+  <h4 class="section-summary">
+    Engenharia front-end, arquitetura, qualidade e integração aplicadas a produtos que precisam
+    evoluir com segurança.
+  </h4>
 </div>
 <div class="skill-grid">
-  @for (group of skillGroups(); track group.label; let i = $index) {
+  @for (group of skillGroups(); track group.label) {
     <article class="skill-group">
-      <span class="skill-index">0{{ i + 1 }}</span>
+      <span class="skill-accent" aria-hidden="true"></span>
       <h3>{{ group.label }}</h3>
       <mat-chip-set aria-label="Competências em {{ group.label }}">
         @for (skill of group.items; track skill) {

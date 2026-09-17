@@ -1,33 +1,33 @@
 :host {
   display: block;
+  margin-block: clamp(3.5rem, 7vw, 6rem);
   padding: clamp(0rem, 10vw, 1rem) clamp(1.25rem, 9vw, 10rem);
-}
-
-.section-number {
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-  font-size: 0.72rem;
-  font-weight: 800;
 }
 
 .section-heading {
   display: grid;
-  grid-template-columns: 1fr 2.1fr 1fr;
-  gap: 2rem;
-  align-items: end;
-  margin-bottom: clamp(2.75rem, 6vw, 5rem);
+  grid-template-columns: minmax(0, 1fr);
+  justify-items: center;
+  gap: clamp(0.75rem, 1.5vw, 1.25rem);
+  max-width: 70rem;
+  margin: 0 auto clamp(1.5rem, 3vw, 2.5rem);
+  text-align: center;
 }
 
 .section-heading h2 {
   margin: 0;
   font-family: var(--display);
-  font-size: clamp(2.8rem, 5vw, 5.5rem);
+  max-width: 34ch;
+  font-size: clamp(2.4rem, 4.6vw, 5rem);
   font-weight: 520;
   line-height: 0.98;
   letter-spacing: -0.045em;
 }
 
 .section-heading > p:last-child {
+  max-width: 52ch;
+  margin: 0;
+  font-size: clamp(1rem, 1.25vw, 1.2rem);
   line-height: 1.7;
 }
 
@@ -38,10 +38,10 @@
 }
 
 .experience-card {
-  min-height: 25rem;
+  min-height: 21rem;
   display: flex;
   flex-direction: column;
-  padding: clamp(1.35rem, 2.5vw, 2rem);
+  padding: clamp(1.2rem, 2vw, 1.65rem);
   border: 1px solid;
   border-radius: 1.5rem;
   overflow: hidden;
@@ -52,6 +52,10 @@
 
 .experience-card:hover {
   transform: translateY(-0.35rem);
+}
+.experience-card:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+  min-height: 18rem;
 }
 
 .card-topline,
@@ -71,7 +75,7 @@
 
 .brand-pair {
   gap: clamp(0.6rem, 1.5vw, 1rem);
-  margin: clamp(2rem, 4vw, 3rem) 0;
+  margin: clamp(1.25rem, 2.5vw, 2rem) 0;
 }
 
 .brand {
@@ -93,12 +97,12 @@
 .brand small,
 .spotlight span {
   margin-bottom: 0.25rem;
-  font-size: 0.66rem;
+  font-size: 0.72rem;
   letter-spacing: 0.09em;
   text-transform: uppercase;
 }
 .brand strong {
-  font-size: clamp(0.75rem, 1.1vw, 0.92rem);
+  font-size: clamp(0.82rem, 1.1vw, 0.96rem);
   line-height: 1.25;
 }
 
@@ -119,6 +123,19 @@
   height: auto;
   max-width: 100%;
   max-height: 100%;
+  object-fit: contain;
+}
+.brand-mark img[src*='keeggo'] {
+  max-width: 92%;
+}
+.brand-mark img[src*='bs2'] {
+  max-width: 82%;
+  max-height: 82%;
+}
+.brand-mark img[src*='ecartorio'],
+.brand-mark img[src*='gft-technologies'] {
+  max-width: 88%;
+  max-height: 88%;
 }
 .brand-connector {
   font-size: 1.2rem;
@@ -133,13 +150,13 @@
   font: 520 clamp(1.25rem, 2vw, 1.65rem)/1.15 var(--display);
 }
 .context {
-  margin: 0.6rem 0 1.5rem;
-  font-size: 0.8rem;
+  margin: 0.45rem 0 1rem;
+  font-size: 0.86rem;
 }
 
 .spotlight {
   align-items: stretch;
-  padding-top: 1.25rem;
+  padding-top: 0.9rem;
   border-top: 1px solid;
 }
 
@@ -153,8 +170,30 @@
   border-left: 1px solid;
 }
 .spotlight strong {
-  font-size: 0.86rem;
+  font-size: 0.92rem;
   line-height: 1.35;
+}
+
+.case-details {
+  margin-top: 0.9rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid;
+}
+.case-details summary {
+  cursor: pointer;
+  font-size: 0.86rem;
+  font-weight: 750;
+  list-style-position: inside;
+}
+.case-details ul {
+  margin: 1rem 0 0;
+  padding-left: 1.2rem;
+  color: var(--ink-soft);
+}
+.case-details li {
+  margin-top: 0.55rem;
+  font-size: 0.88rem;
+  line-height: 1.55;
 }
 
 @media (max-width: 900px) {
@@ -165,11 +204,14 @@
   .section-heading {
     gap: 1rem;
   }
+  .experience-card:last-child:nth-child(odd) {
+    grid-column: auto;
+  }
 }
 
 @media (max-width: 480px) {
   .experience-card {
-    min-height: 27rem;
+    min-height: 23rem;
   }
   .brand-pair {
     align-items: flex-start;

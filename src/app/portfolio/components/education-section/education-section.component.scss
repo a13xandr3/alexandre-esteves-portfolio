@@ -1,27 +1,28 @@
 :host {
   display: block;
+  margin-block: clamp(3.5rem, 7vw, 6rem);
   padding: clamp(0rem, 10vw, 1rem) clamp(1.25rem, 9vw, 10rem);
 }
-.section-number {
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-  font-size: 0.72rem;
-  font-weight: 800;
-}
 .section-heading {
-  display: grid;
-  grid-template-columns: 1fr 2.1fr 1fr;
-  gap: 2rem;
-  align-items: end;
-  margin-bottom: clamp(2.75rem, 6vw, 5rem);
+  max-width: 100%;
+  margin-bottom: clamp(2rem, 4vw, 3.25rem);
 }
 .section-heading h2 {
   margin: 0;
   font-family: var(--display);
-  font-size: clamp(2.8rem, 5vw, 5.5rem);
+  max-width: 100%;
+  font-size: clamp(2.8rem, 4.6vw, 5rem);
   font-weight: 520;
   line-height: 0.98;
   letter-spacing: -0.045em;
+  text-align: center;
+}
+.section-summary {
+  max-width: 100%;
+  margin: 1.25rem 0 0;
+  color: var(--ink-soft);
+  line-height: 1.7;
+  text-align: center;
 }
 .education-grid {
   display: grid;
@@ -29,14 +30,24 @@
   gap: clamp(1rem, 2vw, 1.5rem);
 }
 .education-grid article {
-  min-height: 15rem;
-  padding: clamp(1.75rem, 3vw, 2.5rem);
+  position: relative;
+  min-height: 11.5rem;
+  padding: clamp(1.35rem, 2.2vw, 1.9rem);
   border: 1px solid;
   border-radius: 1.5rem;
   overflow: hidden;
   transition:
     transform 220ms ease,
     box-shadow 220ms ease;
+}
+.education-type {
+  position: absolute;
+  top: clamp(1.35rem, 2.2vw, 1.9rem);
+  right: clamp(1.35rem, 2.2vw, 1.9rem);
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  box-shadow: 0 0 0 0.35rem rgba(194, 173, 135, 0.08);
 }
 .education-grid article:hover {
   transform: translateY(-0.35rem);
@@ -48,15 +59,14 @@
   font-weight: 800;
 }
 .education-grid h3 {
-  margin: 1.4rem 0 0.5rem;
-  font: 520 1.65rem var(--display);
+  margin: 1rem 0 0.4rem;
+  font: 520 clamp(1.35rem, 2vw, 1.55rem) var(--display);
 }
 .education-grid p {
   margin: 0;
   line-height: 1.6;
 }
 @media (max-width: 900px) {
-  .section-heading,
   .education-grid {
     grid-template-columns: 1fr;
   }
