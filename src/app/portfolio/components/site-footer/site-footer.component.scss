@@ -1,9 +1,46 @@
 :host {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   padding: 2rem clamp(1.25rem, 7vw, 8rem);
   font-size: 0.78rem;
 }
+
+.footer-social {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.footer-social a {
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  color: var(--muted);
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  transition:
+    color 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+.footer-social a:hover,
+.footer-social a:focus-visible {
+  color: var(--ink);
+  border-color: var(--accent-strong);
+  box-shadow: 0 0 1rem rgba(223, 207, 173, 0.24);
+  transform: translateY(-0.15rem);
+}
+
+.footer-social svg {
+  width: 1.05rem;
+  height: 1.05rem;
+  fill: currentColor;
+}
+
 @media (max-width: 520px) {
   :host {
     flex-direction: column;
