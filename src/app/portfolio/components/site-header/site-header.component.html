@@ -1,14 +1,14 @@
 <a
-  class="brand"
+  class="brand flex-shrink-0"
   href="#inicio"
   aria-label="Página inicial de Alexandre Esteves"
   [class.active]="activeSection() === 'inicio'"
   [attr.aria-current]="activeSection() === 'inicio' ? 'location' : null"
-  (click)="selectSection('inicio')"
+  (click)="selectSection('inicio', $event)"
   ><span class="brand-mark">AE</span><span>Alexandre Esteves</span></a
 >
 <button
-  class="menu-button"
+  class="menu-button ms-auto"
   type="button"
   (click)="toggleMenu()"
   [attr.aria-expanded]="menuOpen()"
@@ -21,36 +21,48 @@
     href="#sobre"
     [class.active]="activeSection() === 'sobre'"
     [attr.aria-current]="activeSection() === 'sobre' ? 'location' : null"
-    (click)="selectSection('sobre')"
+    (click)="selectSection('sobre', $event)"
     >Sobre</a
   ><a
     href="#experiencia"
     [class.active]="activeSection() === 'experiencia'"
     [attr.aria-current]="activeSection() === 'experiencia' ? 'location' : null"
-    (click)="selectSection('experiencia')"
+    (click)="selectSection('experiencia', $event)"
     >Experiência</a
   ><a
     href="#competencias"
     [class.active]="activeSection() === 'competencias'"
     [attr.aria-current]="activeSection() === 'competencias' ? 'location' : null"
-    (click)="selectSection('competencias')"
+    (click)="selectSection('competencias', $event)"
     >Competências</a
   ><a
     href="#formacao"
     [class.active]="activeSection() === 'formacao'"
     [attr.aria-current]="activeSection() === 'formacao' ? 'location' : null"
-    (click)="selectSection('formacao')"
+    (click)="selectSection('formacao', $event)"
     >Formação</a
   >
   <div class="header-meta" aria-label="Localidade e modalidade de atuação">
-    <span class="meta-icon" aria-label="São Paulo, Brasil" title="São Paulo, Brasil">
+    <span
+      class="meta-icon has-tooltip"
+      aria-label="São Paulo, Brasil"
+      data-tooltip="São Paulo, Brasil"
+      title="São Paulo, Brasil"
+      tabindex="0"
+    >
       <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
         <path
           d="M12 1.75a7.25 7.25 0 0 0-7.25 7.25c0 5.18 6.25 12.62 6.52 12.94a.95.95 0 0 0 1.46 0c.27-.32 6.52-7.76 6.52-12.94A7.25 7.25 0 0 0 12 1.75Zm0 10.1A2.85 2.85 0 1 1 12 6.15a2.85 2.85 0 0 1 0 5.7Z"
         />
       </svg>
     </span>
-    <span class="meta-icon" aria-label="Atuação remota ou híbrida" title="Remoto ou híbrido">
+    <span
+      class="meta-icon has-tooltip"
+      aria-label="Atuação remota ou híbrida"
+      data-tooltip="Remoto ou híbrido"
+      title="Remoto ou híbrido"
+      tabindex="0"
+    >
       <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
         <path
           d="M4 3.5h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-6.75v1.75H17a.75.75 0 0 1 0 1.5H7a.75.75 0 0 1 0-1.5h3.75V17.5H4a2 2 0 0 1-2-2v-10a2 2 0 0 1 2-2Zm0 2v10h16v-10H4Z"
@@ -60,12 +72,15 @@
   </div>
   <div class="header-social" aria-label="Contato e redes sociais">
     <a
-      class="social-link"
+      class="social-link has-tooltip"
       href="https://github.com/a13xandr3"
       target="_blank"
       rel="noopener noreferrer"
       aria-label="GitHub de Alexandre Esteves"
       title="GitHub"
+      data-tooltip="GitHub"
+      [class.active]="activeHeaderIcon() === 'github'"
+      (click)="selectHeaderIcon('github')"
     >
       <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
         <path
@@ -74,12 +89,15 @@
       </svg>
     </a>
     <a
-      class="social-link"
+      class="social-link has-tooltip"
       href="https://wa.me/5511925020772"
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Conversar com Alexandre Esteves pelo WhatsApp"
       title="WhatsApp"
+      data-tooltip="WhatsApp"
+      [class.active]="activeHeaderIcon() === 'whatsapp'"
+      (click)="selectHeaderIcon('whatsapp')"
     >
       <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
         <path
@@ -88,11 +106,13 @@
       </svg>
     </a>
     <a
-      class="social-link"
+      class="social-link has-tooltip"
       href="#contato"
-      (click)="closeMenu()"
+      (click)="selectSection('contato', $event)"
       aria-label="Ir para o formulário de contato"
       title="E-mail"
+      data-tooltip="E-mail / contato"
+      [class.active]="activeHeaderIcon() === 'email' || activeSection() === 'contato'"
     >
       <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
         <path
@@ -101,12 +121,15 @@
       </svg>
     </a>
     <a
-      class="social-link"
+      class="social-link has-tooltip"
       href="https://www.linkedin.com/in/aealves"
       target="_blank"
       rel="noopener noreferrer"
       aria-label="LinkedIn de Alexandre Esteves"
       title="LinkedIn"
+      data-tooltip="LinkedIn"
+      [class.active]="activeHeaderIcon() === 'linkedin'"
+      (click)="selectHeaderIcon('linkedin')"
     >
       <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
         <path
@@ -116,5 +139,11 @@
       </svg>
     </a>
   </div>
-  <a class="nav-cta" href="#contato" (click)="closeMenu()">Vamos conversar</a>
+  <a
+    class="nav-cta"
+    href="#contato"
+    [class.active]="activeSection() === 'contato'"
+    (click)="selectSection('contato', $event)"
+    >Vamos conversar</a
+  >
 </nav>

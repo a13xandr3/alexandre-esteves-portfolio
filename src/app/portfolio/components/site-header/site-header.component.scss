@@ -57,9 +57,12 @@ nav a {
 }
 nav > a:not(.nav-cta) {
   position: relative;
-  padding: 0.65rem 0.15rem;
+  padding: 0.65rem 0.55rem;
+  border-radius: 0.45rem;
   transition:
+    background-color 180ms ease,
     color 180ms ease,
+    box-shadow 180ms ease,
     text-shadow 180ms ease,
     transform 180ms ease;
 }
@@ -87,6 +90,8 @@ nav > a:not(.nav-cta):hover {
 }
 nav > a:not(.nav-cta).active {
   color: #fffefa;
+  background: rgba(194, 173, 135, 0.1);
+  box-shadow: inset 0 0 0 1px rgba(223, 207, 173, 0.14);
   text-shadow:
     0 0 0.35rem rgba(255, 254, 250, 0.95),
     0 0 1rem rgba(223, 207, 173, 0.72);
@@ -135,6 +140,14 @@ nav > a:not(.nav-cta):focus-visible::after {
 .social-link:hover {
   transform: translateY(-0.15rem);
 }
+.social-link.active {
+  color: #fffefa;
+  border-color: var(--accent-strong);
+  background: rgba(194, 173, 135, 0.16);
+  box-shadow:
+    0 0 0 1px rgba(223, 207, 173, 0.28),
+    0 0 1rem rgba(223, 207, 173, 0.3);
+}
 .social-link svg {
   width: 1.05rem;
   height: 1.05rem;
@@ -145,6 +158,43 @@ nav .nav-cta {
   border: 1px solid;
   border-radius: 0.65rem;
   font-weight: 750;
+}
+nav .nav-cta.active {
+  color: #fffefa;
+  border-color: var(--accent-strong);
+  box-shadow: 0 0 1rem rgba(223, 207, 173, 0.24);
+}
+.has-tooltip {
+  position: relative;
+}
+.has-tooltip::after {
+  position: absolute;
+  top: calc(100% + 0.55rem);
+  left: 50%;
+  z-index: 30;
+  width: max-content;
+  max-width: 12rem;
+  padding: 0.4rem 0.6rem;
+  border: 1px solid var(--line);
+  border-radius: 0.4rem;
+  background: var(--surface-raised);
+  color: var(--ink);
+  box-shadow: 0 0.65rem 1.5rem var(--shadow-strong);
+  content: attr(data-tooltip);
+  font-size: 0.72rem;
+  line-height: 1.2;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate(-50%, -0.2rem);
+  transition:
+    opacity 150ms ease,
+    transform 150ms ease;
+  white-space: nowrap;
+}
+.has-tooltip:hover::after,
+.has-tooltip:focus-visible::after {
+  opacity: 1;
+  transform: translate(-50%, 0);
 }
 .menu-button {
   display: none;
@@ -171,6 +221,10 @@ nav .nav-cta {
   nav.open {
     display: flex;
   }
+  nav > a:not(.nav-cta) {
+    align-self: flex-start;
+    width: fit-content;
+  }
   .header-social {
     justify-content: center;
     padding: 0.5rem 0;
@@ -184,6 +238,10 @@ nav .nav-cta {
   }
   nav .nav-cta {
     text-align: center;
+  }
+  .has-tooltip::after {
+    top: auto;
+    bottom: calc(100% + 0.45rem);
   }
 }
 
