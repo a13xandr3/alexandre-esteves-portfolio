@@ -4,11 +4,9 @@
 <p class="contact-intro">
   Conte-me sobre seu projeto, desafio ou oportunidade. Normalmente respondo em até um dia útil.
 </p>
-
 <form class="contact-form container-fluid px-0" (submit)="sendMessage($event)">
   <input type="hidden" name="_subject" value="contato" />
   <input type="hidden" name="_template" value="table" />
-
   <label for="contact-email">e-mail</label>
   <input
     id="contact-email"
@@ -16,9 +14,14 @@
     type="email"
     autocomplete="email"
     placeholder="voce@exemplo.com"
-    required
-  />
-
+    required />
+  <input
+    id="telefone"
+    name="telfone"
+    type="telefone"
+    autocomplete="telfone"
+    placeholder="(00) 91234-5678"
+    > 
   <div class="message-heading">
     <label for="contact-message">mensagem</label>
     <span>{{ messageLength() }} / 2000</span>
@@ -28,15 +31,13 @@
     name="message"
     rows="3"
     maxlength="2000"
-    placeholder="Conte um pouco sobre sua ideia, projeto ou oportunidade..."
+    placeholder="Informe sua mensagem"
     required
     (input)="updateMessageLength($event)"
   ></textarea>
-
   <button class="col-12 col-sm-auto" type="submit" [disabled]="sendState() === 'sending'">
     {{ sendState() === 'sending' ? 'Enviando…' : 'Enviar mensagem' }}
   </button>
-
   <p class="form-status" aria-live="polite">
     @if (sendState() === 'success') {
       Mensagem enviada. Obrigado pelo contato!
