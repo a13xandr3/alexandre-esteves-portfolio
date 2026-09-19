@@ -5,6 +5,8 @@
     "ng": "ng",
     "start": "ng serve --port 4201",
     "build": "ng build",
+    "build:prod": "ng build --configuration production --base-href /",
+    "deploy": "npm run build:prod && npx angular-cli-ghpages --dir=dist/alexandre-page/browser --branch=gh-pages",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
